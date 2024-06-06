@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./assets/social.png" type="image/x-icon">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- script js -->
+    <script src="./js/script.js"></script>
+</head>
+<body>
+    <!-- header -->
+
+    <!-- nav bar -->
+    <section class="navbar">
+        <div class="navbar-content">
+            <div class="left-side-navbar">
+                <span class="navbar-icons toggle-button">
+                    <i class="fas fa-bars"></i>
+                </span>
+                <span class="github-icon">
+                    <i class="fab fa-github"></i>
+                </span>
+                <p class="navbar-text">dashboard</p>
+            </div>
+            <div class="hidden" id="navbar">
+                <input type="text" id="searchBar" placeholder="Search...">
+            </div>
+            <div class="right-side-navbar">
+                <sapn class="search-bar" onclick="toggleSearchBar()" id="toggleButton">
+                    <div class="inside-button">
+                        <div class="left-inside">
+                            <span class="search-icon-inside">
+                                <i class="fas fa-search"></i>
+                            </span>
+                            <p>Type / to search</p>
+                        </div>
+                        <div class="right-inside">
+                            <p class="right-inside-or">|</p>
+                            <button type="button" id="AppHeader-commandPalette-button" class="AppHeader-search-action--trailing js-activate-command-palette" data-analytics-event="{&quot;category&quot;:&quot;SiteHeaderComponent&quot;,&quot;action&quot;:&quot;command_palette&quot;,&quot;label&quot;:&quot;open command palette&quot;}" aria-labelledby="tooltip-69d85efb-5c47-458e-a635-fba78d2ca9a7">
+                                <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-command-palette">
+                                    <path d="m6.354 8.04-4.773 4.773a.75.75 0 1 0 1.061 1.06L7.945 8.57a.75.75 0 0 0 0-1.06L2.642 2.206a.75.75 0 0 0-1.06 1.061L6.353 8.04ZM8.75 11.5a.75.75 0 0 0 0 1.5h5.5a.75.75 0 0 0 0-1.5h-5.5Z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </sapn>
+                <span class="navbar-icons search-icon">
+                    <i class="fas fa-search"></i>
+                </span>
+                <p class="or">|</p>
+                <span class="navbar-icons create-new">
+                    <i class="fas fa-plus"></i>
+                    <p class="down-arrow">▼</p>
+                </span>
+                <span class="navbar-icons issues">
+                    <a href="/issues" data-analytics-event="{&quot;category&quot;:&quot;Global navigation&quot;,&quot;action&quot;:&quot;ISSUES_HEADER&quot;,&quot;label&quot;:null}" id="icon-button-68dcce29-9f26-4ec8-8b27-90918fe275b5" aria-labelledby="tooltip-759cb26f-1dba-4851-b9a6-263bd0ab8a23" data-view-component="true" class="Button Button--iconOnly Button--secondary Button--medium AppHeader-button color-fg-muted">  <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-issue-opened Button-visual">
+                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"></path>
+                    </svg>
+                    </a>
+                </span>
+                <span class="navbar-icons pull-request">
+                    <a href="/pulls" data-analytics-event="{&quot;category&quot;:&quot;Global navigation&quot;,&quot;action&quot;:&quot;PULL_REQUESTS_HEADER&quot;,&quot;label&quot;:null}" id="icon-button-7141a0e3-449b-4392-8fa7-5ec52d07db7b" aria-labelledby="tooltip-d213edad-29db-4c47-9b85-cc89d19ecefd" data-view-component="true" class="Button Button--iconOnly Button--secondary Button--medium AppHeader-button color-fg-muted">  <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-git-pull-request Button-visual">
+                        <path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"></path>
+                    </svg>
+                </a>
+                </span>
+                <span class="navbar-icons notification-icon">
+                    <notification-indicator data-channel="eyJjIjoibm90aWZpY2F0aW9uLWNoYW5nZWQ6MTM1MTE0MDUzIiwidCI6MTcxNzY3NDk5NX0=--e8c545e7b3c90659c3c7135d6eebe67cf9d043c6bd9a6224097639ae7c46b9b1" data-indicator-mode="global" data-tooltip-global="You have unread notifications" data-tooltip-unavailable="Notifications are unavailable at the moment." data-tooltip-none="You have no unread notifications" data-header-redesign-enabled="true" data-fetch-indicator-src="/notifications/indicator" data-fetch-indicator-enabled="true" data-view-component="true" class="js-socket-channel" data-fetch-retry-delay-time="500" data-catalyst="">
+                        <a id="AppHeader-notifications-button" href="/notifications" aria-label="You have unread notifications" data-hotkey="g n" data-target="notification-indicator.link" data-analytics-event="{&quot;category&quot;:&quot;Global navigation&quot;,&quot;action&quot;:&quot;NOTIFICATIONS_HEADER&quot;,&quot;label&quot;:&quot;icon:unread&quot;}" data-view-component="true" class="Button Button--iconOnly Button--secondary Button--medium AppHeader-button color-fg-muted AppHeader-button--hasIndicator" aria-describedby="tooltip-86dd6499-7b87-4cae-b7a3-722c2fa33bd3">  <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-inbox Button-visual">
+                        <path d="M2.8 2.06A1.75 1.75 0 0 1 4.41 1h7.18c.7 0 1.333.417 1.61 1.06l2.74 6.395c.04.093.06.194.06.295v4.5A1.75 1.75 0 0 1 14.25 15H1.75A1.75 1.75 0 0 1 0 13.25v-4.5c0-.101.02-.202.06-.295Zm1.61.44a.25.25 0 0 0-.23.152L1.887 8H4.75a.75.75 0 0 1 .6.3L6.625 10h2.75l1.275-1.7a.75.75 0 0 1 .6-.3h2.863L11.82 2.652a.25.25 0 0 0-.23-.152Zm10.09 7h-2.875l-1.275 1.7a.75.75 0 0 1-.6.3h-3.5a.75.75 0 0 1-.6-.3L4.375 9.5H1.5v3.75c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25Z"></path>
+                    </svg>
+                    </a>
+                    <tool-tip data-target="notification-indicator.tooltip" id="tooltip-86dd6499-7b87-4cae-b7a3-722c2fa33bd3" for="AppHeader-notifications-button" popover="manual" data-direction="s" data-type="description" data-view-component="true" class="position-absolute sr-only" role="tooltip" style="--tool-tip-position-top: 48px; --tool-tip-position-left: 517.2250366210938px;">You have unread notifications</tool-tip>
+                    </notification-indicator>
+                    <p class="blue-dot"></p>
+                </span>
+                <span class="profile-picture">
+                    <a href="#"><img src="./assets/me.jpg" alt="profile picture"></a>
+                </span>
+            </div>
+        </div>
+    </section>
+    <!-- end of nav bar -->
+
+    <!-- end of header -->
+
+
+</body>
+</html>
