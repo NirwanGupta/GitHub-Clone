@@ -8,14 +8,17 @@ Fonts
 /* globals */
 
 :root {
-    --clr-grey-1: rgb(235, 241, 247);
+    --clr-grey-1: rgb(237, 238, 238);;
     --clr-grey-5: rgb(148, 143, 143);
     --clr-grey-10: rgb(83, 80, 80);
     --clr-grey-15: rgb(198, 195, 195);
     --clr-grey-20: rgb(171, 169, 169);
+    --clr-grey-25: #636c76;
     --clr-white: #fff;
     --clr-black: #000;
+    --clr-blue: rgb(3, 138, 255);
     --radius: 20%;
+    --transition: all 0.3s linear;
 }
 
 * {
@@ -26,8 +29,12 @@ Fonts
 
 body {
     font-family: "Lato", sans-serif;
-    background: var(--clr-white);
+    background: white;
     line-height: 1.5;
+}
+
+body.lock-scroll {
+    overflow-y: hidden;
 }
 
 img {
@@ -118,12 +125,82 @@ navbar
     right: 2em;
 }
 
+#toggle-menubar, #closeButton {
+    cursor: pointer;
+}
+
+/*
+=============== 
+search field
+===============
+*/
+
 .hidden {
     display: none;
+    position: absolute;
+    width: calc(100vw - 2px);
+    height: 55px;
+    background: var(--clr-white);
+    padding: 25px;
+    z-index: 2;
+    margin-top: 5px;
+    border-radius: 10px;
+    background: var(--clr-white);
+}
+
+.hidden input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    padding: 0 35px;
+}
+
+.hidden input:focus {
+    outline: none;
+    border: 2px solid blue;
+    border-radius: 10px;
+    /* transform: scale(1.01); */
+}
+
+.hidden input:focus .container-search-icon-input {
+    border: var(--clr-white);
+}
+
+.hidden i {
+    position: absolute;
+    top: 25%;
+    left: 10px;
+}
+
+.container-search-icon-input {
+    display: flex;
+    width: 100%;
+    border: 2px solid var(--clr-grey-15);
+    height: 40px;
+    transform: translateY(-50%);
+    border-radius: 10px;
 }
 
 .visible {
     display: block;
+}
+
+.dark-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.05);
+    display: none;
+}
+
+.visible-overlay {
+    display: block;
+}
+
+#navbar {
+    background: white;
 }
 
 @media screen and (min-width: 500px) {
@@ -159,7 +236,7 @@ navbar
         border: 0.1px solid var(--clr-grey-15);
         padding-top: 0;
         transform: translateY(3px);
-        border-radius: 5%;
+        border-radius: 5px;
         width: 350px;
         height: 30px;
     }
@@ -192,4 +269,260 @@ navbar
         color: var(--clr-grey-10);
         transform: translateY(4px);
     }
+
+    /*
+    =============== 
+    search flield
+    ===============
+    */
+
+    .hidden {
+        width: calc(100vw - 270px - 100px);
+        right: 270px;
+        left: 100px;
+        border-radius: 10px;
+    }
+}
+
+#navbar {
+    background: white;
+}
+
+/*
+=============== 
+suggestions
+===============
+*/
+
+.suggestions {
+    width: 100%;
+    /* background: var(--clr-white); */
+}
+
+.suggestions-upper {
+    color: var(--clr-grey-10);
+    font-size: 13px;
+    z-index: 3;
+}
+
+.suggestions-lower {
+    color: var(--clr-grey-10);
+    font-size: 13px;
+    z-index: 3;
+}
+
+.single-suggestion {
+    display: flex;
+    position: relative;
+    margin: 20px 0;
+}
+
+.left-side-text {
+    position: absolute;
+    left: 20px;
+    flex: 0 1 auto;
+    width: 60%;
+}
+
+.right-side-text {
+    position: absolute;
+    right: 20px;
+    flex: 0 1 auto;
+}
+
+.horizontal-line {
+    width: 100%;
+    height: 2px;
+    background: rgb(243, 241, 241)
+}
+
+.last-content-in-search {
+    display: flex;
+    position: relative;
+}
+
+.give-feedback {
+    color: var(--clr-blue);
+    position: absolute;
+    right: 10px;
+}
+
+.search-syntax-tips {
+    color: var(--clr-blue);
+    position: absolute;
+    left: 10px;
+}
+
+/*
+=============== 
+menubar
+===============
+*/
+
+.menubar {
+    display: none;
+    width: 320px;
+    height: 100vh;
+    position: absolute;
+    z-index: 6;
+    transition: all 0.5s ease;
+    overflow: hidden;
+}
+
+.menubar-active {
+    display: block;
+    overflow-y: hidden;
+}
+
+.menubar-content {
+    z-index: 5;
+    background: rgb(247, 247, 248);
+    width: 100%;
+    height: 100%;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
+.menubar-icons {
+    position: relative;
+}
+
+.menubar-github-icon {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 35px;
+}
+
+.cross-icon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 10px;
+    transform: translateY(100%);
+    color: var(--clr-grey-10);
+}
+
+.list-elements-menubar {
+    margin-top: 70px;
+    margin-left: 25px;
+}
+
+.middle-menubar-list-elements {
+    margin-top: 20px;
+    margin-left: 25px;
+}
+
+.last-menubar-list-elements {
+    margin-top: 30px;
+    margin-left: 25px;
+}
+
+.menubar-last-links {
+    margin-top: 15px;
+    margin-left: 25px;
+}
+
+.show-more-manubar {
+    margin-left: 25px;
+    font-size: 12px;
+    color: var(--clr-grey-25);
+}
+
+.extra-in-menubar {
+    margin-top: 30px;
+    margin-left: 25px;
+    font-size: 12px;
+    color: var(--clr-grey-15);
+    font-weight: lighter;
+}
+
+.one-list-item-li {
+    list-style-type: none;
+}
+
+.one-list-item {
+    position: relative;
+    list-style-type: none;
+    padding-bottom: 32px;
+    transition: var(--transition);
+}
+
+.one-list-item:hover {
+    transform: translateX(10px);
+}
+
+.menubar-ul-icon {
+    position: absolute;
+    left: 0;
+}
+
+.menubar-ul-icon svg {
+    color: #636c76;
+    fill: #636c76;
+}
+
+.menubar-ul-text {
+    position: absolute;
+    left: 25px;
+    top: -2px;
+    text-decoration: none;
+    font-size: 15px;
+    color: var(--clr-grey-25);
+    overflow: hidden;
+}
+
+.horizontal-line-menubar {
+    color: var(--clr-grey-20);
+    width: 94%;
+    transform: translateX(3%);
+}
+
+.repositories-menubar {
+    display: flex;
+    position: relative;
+    margin-top: 15px;
+}
+
+.repositories-menubar-text {
+    position: absolute;
+    left: 24px;
+    color: var(--clr-grey-25);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.repositories-menubar-icon {
+    position: absolute;
+    right: 24px;
+    color: var(--clr-grey-25);
+    font-size: 15px;
+    transform: translatey(-15%);
+}
+
+.profile-picture-menubar {
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    border: 0.1px solid var(--clr-grey-20);
+}
+
+.repo-text {
+    font-size: 14px;
+}
+
+.Link {
+    font-size: 13px;
+    text-decoration: none;
+    color: rgb(63, 126, 251);
+}
+
+.Link:hover, .Button--link:hover {
+    text-decoration: underline;
+}
+
+.Button--link {
+    background: transparent;
+    border: transparent;
+    color: rgb(63, 126, 251);
 }
