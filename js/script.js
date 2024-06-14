@@ -1,15 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
     const navbar = document.getElementById('navbar');
+    const suggestions = document.getElementById("suggestions");
     const searchBar = document.getElementById('searchBar');
     const toggleButton = document.getElementById('toggleButton');
+
     const dashboardText = document.getElementById("dashboardText");
+
     const menubar = document.getElementById("hidden-menubar");
     const menubarToggle = document.getElementById("toggle-menubar");
     const closeButton = document.getElementById("closeButton");
+    
+    const moreRepos = document.getElementById("hide-repo");
+    const horizontalLine = document.getElementById("horizontal-line");
+    const showMoreText = document.getElementById("show-more-repo");
+    const leftContainerRepositories = document.getElementById("left-container-repositories");
+    const leftSection = document.getElementById("left-section");
 
-    const overlay = document.createElement("div");
-    overlay.classList.add("dark-overlay");
-    document.body.appendChild(overlay);
+    const singlePosts = document.getElementsByClassName("single-post");
 
 
     window.toggleSearchBar = function() {
@@ -22,6 +29,15 @@ document.addEventListener('DOMContentLoaded', () => {
         event.stopPropagation();
         menubar.classList.toggle("menubar-active");
         document.body.classList.add("lock-scroll");
+    }
+
+    window.showMoreRepo = function() {
+        event.stopPropagation();
+        moreRepos.classList.add("show-more-repository");
+        horizontalLine.classList.add("hide-these");
+        showMoreText.classList.add("hide-these");
+        leftContainerRepositories.classList.add("increase-height");
+        leftSection.classList.add("increase-height-upper-div");
     }
 
     document.addEventListener('click', (event) => {
@@ -47,14 +63,11 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateDashboardText() {
         if (window.innerWidth < 340) {
             dashboardText.textContent = 'dashb...';
+            singlePosts.style.fontSize = '0.8rem';
         } else {
             dashboardText.textContent = 'dashboard';
         }
     }
-
-    // Initial call to set the correct text
     updateDashboardText();
-
-    // Update text on window resize
     window.addEventListener('resize', updateDashboardText);
 });
